@@ -14,6 +14,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 
 RUN apt-get -yqq update
 RUN apt-get -yqq install ansible
+RUN apt-get -yqq install cifs-utils
 RUN apt-get -yqq install curl
 RUN apt-get -yqq install dnsutils
 RUN apt-get -yqq install git
