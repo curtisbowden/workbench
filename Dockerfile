@@ -2,15 +2,23 @@
 FROM debian:stable
 MAINTAINER Curtis Bowden
 
+# Add contrib and non-free repositories to /etc/apt/sources.list
+
 RUN sed -i "s#deb http://deb.debian.org/debian stable main#deb http://deb.debian.org/debian stable main contrib non-free#g" /etc/apt/sources.list
 RUN sed -i "s#deb http://security.debian.org/debian-security stable/updates main#deb http://security.debian.org/debian-security stable/updates main contrib non-free#g" /etc/apt/sources.list
 RUN sed -i "s#deb http://deb.debian.org/debian stable-updates main#deb http://deb.debian.org/debian stable-updates main contrib non-free#g" /etc/apt/sources.list
 
+# Update apt and install dirmngr for gpg keys
+
 RUN apt-get -yqq update
 RUN apt-get -yqq install dirmngr
 
+# Add latest ansible repository
+
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/apt/sources.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+
+# Install tools
 
 RUN apt-get -yqq update
 RUN apt-get -yqq install ansible
@@ -33,4 +41,17 @@ RUN apt-get -yqq install telnet
 RUN apt-get -yqq install vim
 RUN apt-get -yqq install whois
 RUN apt-get -yqq install wget
+
+# Customize bash prompt
+RUN rm /root/.bashrc
+COPY config/.bashrc /root/.bashrc
+
+# Customize vim
+COPY vimconfig/.vimrc /root/.vimrc
+RUN mkdir /root/.vim
+RUN ln -s /root/.vim /root/.vimfiles
+RUN curl -fLo /root/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim
+
+
 
