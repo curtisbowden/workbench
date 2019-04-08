@@ -14,14 +14,16 @@ Locally from the project directory.
     
 ### Run container
 
+Change directory `cd` to your home directory.
+
 Linux and Powershell
     
-    docker run --rm -it -v ${PWD}:/root/project -w /root/project -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v ${PWD}:/home -w /home -e "TERM=xterm-256color" curtisbowden/workbench
     
 Linux only
 
-    docker run --rm -it -v $(PWD):/root/project -w /root/project -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v $(PWD):/home -w /home -e "TERM=xterm-256color" curtisbowden/workbench
     
 Windows cmd
 
-    docker run --rm -it -v %cd%:/root/project -w /root/project -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v %cd%:/home -w /home -e "TERM=xterm-256color" curtisbowden/workbench
