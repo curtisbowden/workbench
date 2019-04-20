@@ -47,11 +47,12 @@ RUN rm /root/.bashrc
 COPY config/.bashrc /root/.bashrc
 
 # Customize vim
-COPY vimconfig/.vimrc /root/.vimrc
+COPY vimconfig/.vimrc-plugins /root/.vimrc
 RUN mkdir /root/.vim
 RUN ln -s /root/.vim /root/.vimfiles
 RUN curl -fLo /root/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vundle.vim
 
-
-
+RUN vim +PlugInstall +qall
+RUN vim +PluginInstall +qall
+COPY vimconfig/.vimrc /root/.vimrc
