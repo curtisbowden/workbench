@@ -38,6 +38,8 @@ RUN apt-get -yqq install python-pip
 RUN apt-get -yqq install snmp
 RUN apt-get -yqq install snmp-mibs-downloader
 RUN apt-get -yqq install telnet
+RUN apt-get -yqq install tftp
+RUN apt-get -yqq install traceroute
 RUN apt-get -yqq install vim
 RUN apt-get -yqq install whois
 RUN apt-get -yqq install wget
