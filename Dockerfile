@@ -44,9 +44,14 @@ RUN apt-get -yqq install vim
 RUN apt-get -yqq install whois
 RUN apt-get -yqq install wget
 
+RUN pip install openpyxl
+
 # Customize bash prompt
 RUN rm /root/.bashrc
 COPY config/.bashrc /root/.bashrc
+
+# Create ~/.ssh folder for ssh keys
+RUN mkdir /root/.ssh
 
 # Customize vim
 COPY vimconfig/.vimrc-plugins /root/.vimrc
