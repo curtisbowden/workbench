@@ -26,6 +26,9 @@ RUN apt-get -yqq install cifs-utils
 RUN apt-get -yqq install curl
 RUN apt-get -yqq install dnsutils
 RUN apt-get -yqq install git
+RUN apt-get -yqq install iperf3
+RUN apt-get -yqq install iputils-arping
+RUN apt-get -yqq install iputils-tracepath
 RUN apt-get -yqq install ldap-utils
 RUN apt-get -yqq install man
 RUN apt-get -yqq install minicom
