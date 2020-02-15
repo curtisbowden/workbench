@@ -12,11 +12,19 @@ RUN sed -i "s#deb http://deb.debian.org/debian stable-updates main#deb http://de
 
 RUN apt-get -yqq update
 RUN apt-get -yqq install dirmngr
+RUN apt-get -yqq install gnupg1 
+RUN apt-get -yqq install apt-transport-https
 
 # Add latest ansible repository
 
 RUN echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" >> /etc/apt/sources.list
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
+
+# ADD speedtest.net repository
+
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+RUN echo "deb https://ookla.bintray.com/debian buster main" >> /etc/apt/sources.list
+
 
 # Install tools
 
@@ -40,6 +48,8 @@ RUN apt-get -yqq install python3
 RUN apt-get -yqq install python-pip
 RUN apt-get -yqq install snmp
 RUN apt-get -yqq install snmp-mibs-downloader
+RUN apt-get -yqq install speedtest
+RUN apt-get -yqq install tcpdump
 RUN apt-get -yqq install telnet
 RUN apt-get -yqq install tftp
 RUN apt-get -yqq install traceroute
