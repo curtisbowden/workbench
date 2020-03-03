@@ -2,7 +2,7 @@
 
   This docker build is designed to be similar to busybox or Windows subsystem for Linux, except that it has a tool set installed that is useful for network administration and troubleshooting tasks.  There is likely a better way to achieve this, but creation of this build was also an exercise in learning about docker.
   
-### Build container
+### Build image
 
 Directly from github.
 
