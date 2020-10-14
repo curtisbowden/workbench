@@ -20,6 +20,10 @@ Linux and Powershell
     
     docker run --rm -it -v ${PWD}:/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
     
+Linux and Powershell (with .ssh folder and existing code folder)
+
+    docker run --rm -it -v ${PWD}/.ssh:/root/.ssh -v ${PWD}/code:/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
+    
 Linux only
 
     docker run --rm -it -v $(PWD):/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
