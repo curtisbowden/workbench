@@ -18,16 +18,16 @@ Change directory `cd` to your home directory.
 
 Linux and Powershell
     
-    docker run --rm -it -v ${PWD}:/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v ${PWD}:/code -w /code curtisbowden/workbench
     
 Linux and Powershell (with .ssh folder and existing code folder)
 
-    docker run --rm -it -v ${PWD}/.ssh:/root/.ssh -v ${PWD}/code:/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v ${PWD}/.ssh:/root/.ssh -v ${PWD}/code:/code -w /code curtisbowden/workbench
     
 Linux only
 
-    docker run --rm -it -v $(PWD):/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v $(PWD):/code -w /code  curtisbowden/workbench
     
 Windows cmd
 
-    docker run --rm -it -v %cd%:/code -w /code -e "TERM=xterm-256color" curtisbowden/workbench
+    docker run --rm -it -v %cd%:/code -w /code curtisbowden/workbench

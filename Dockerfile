@@ -1,6 +1,5 @@
 # Base
 FROM debian:stable
-MAINTAINER Curtis Bowden
 
 # Add contrib and non-free repositories to /etc/apt/sources.list
 
@@ -76,3 +75,12 @@ RUN git clone https://github.com/VundleVim/Vundle.vim.git /root/.vim/bundle/Vund
 RUN vim +PlugInstall +qall
 RUN vim +PluginInstall +qall
 COPY vimconfig/.vimrc /root/.vimrc
+
+# Upgrade packages
+RUN apt-get -yqq upgrade
+
+# Setup environment variables
+
+ENV TERM=xterm-256color
+
+CMD ["ssh-agent", "/bin/bash"]
