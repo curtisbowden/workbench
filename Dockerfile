@@ -50,10 +50,10 @@ RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | bash
 RUN apt-get -yqq install speedtest
 
 # Adhoc tools
-RUN pip3 install openpyxl
-RUN pip3 install requests
-RUN pip3 install grenml
 RUN pip3 install geopy
+RUN pip3 install grenml
+RUN pip3 install openpyxl
+RUN pip3 install simplekml
 
 # Customize bash prompt
 RUN rm /root/.bashrc
