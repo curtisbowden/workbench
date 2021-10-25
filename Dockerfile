@@ -9,7 +9,7 @@ RUN sed -i "s#deb http://deb.debian.org/debian stable-updates main#deb http://de
 # Update apt and install dirmngr for gpg keys
 RUN apt-get -yqq update
 RUN apt-get -yqq install dirmngr
-RUN apt-get -yqq install gnupg1 
+RUN apt-get -yqq install gnupg1
 RUN apt-get -yqq install apt-transport-https
 
 # Add latest ansible repository
@@ -24,6 +24,7 @@ RUN apt-get -yqq install curl
 RUN apt-get -yqq install dnsutils
 RUN apt-get -yqq install git
 RUN apt-get -yqq install iperf3
+RUN apt-get -yqq install iputils-ping
 RUN apt-get -yqq install iputils-arping
 RUN apt-get -yqq install iputils-tracepath
 RUN apt-get -yqq install ldap-utils
