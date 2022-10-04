@@ -15,27 +15,28 @@ Locally from the project directory.
 ### Run container
 
 Change directory `cd` to your home directory.
+Note: DNS required for reverse lookups on Docker Desktop for Windows
 
 Linux and Powershell
 
-    docker run --rm -it -v ${PWD}:/code -w /code curtisbowden/workbench
+    docker run --rm -it --dns 1.1.1.1 -v ${PWD}:/code -w /code curtisbowden/workbench
 
 Linux and Powershell (with .ssh folder and existing code folder)
 
-    docker run --rm -it -v ${PWD}/.ssh:/root/.ssh -v ${PWD}/code:/code -w /code curtisbowden/workbench
+    docker run --rm -it --dns 1.1.1.1 -v ${PWD}/.ssh:/root/.ssh -v ${PWD}/code:/code -w /code curtisbowden/workbench
 
 Linux only
 
-    docker run --rm -it -v $(PWD):/code -w /code  curtisbowden/workbench
+    docker run --rm -it --dns 1.1.1.1 -v $(PWD):/code -w /code  curtisbowden/workbench
 
 Windows cmd
 
-    docker run --rm -it -v %cd%:/code -w /code curtisbowden/workbench
+    docker run --rm -it --dns 1.1.1.1 -v %cd%:/code -w /code curtisbowden/workbench
 
 Windows Terminal
 ```json
     {
-        "commandline": "docker run --rm -it -v %USERPROFILE%/.ssh:/root/.ssh -v %USERPROFILE%:/home/%USERNAME% -w /home/%USERNAME%  curtisbowden/workbench",
+        "commandline": "docker run --rm -it --dns 1.1.1.1 -v %USERPROFILE%/.ssh:/root/.ssh -v %USERPROFILE%/.gitconfig:/root/.gitconfig -v %USERPROFILE%:/home/%USERNAME% -w /home/%USERNAME%  curtisbowden/workbench",
         "guid": "{foo-bar-guid}",
         "icon": "C:\\Path\\to\\logo.png",
         "name": "docker (curtisbowden/workbench)"

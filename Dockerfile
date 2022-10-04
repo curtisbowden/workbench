@@ -18,7 +18,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 
 # Install tools
 RUN apt-get -yqq update
-RUN apt-get -yqq install ansible
+RUN apt-get -yqq install ack
 RUN apt-get -yqq install cifs-utils
 RUN apt-get -yqq install curl
 RUN apt-get -yqq install dnsutils
@@ -47,15 +47,18 @@ RUN apt-get -yqq install whois
 RUN apt-get -yqq install wget
 
 # ADD speedtest.net repository
-RUN curl -s https://install.speedtest.net/app/cli/install.deb.sh | bash
+RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash
 RUN apt-get -yqq install speedtest
 
 # Python tools
+RUN pip3 install ansible
 RUN pip3 install geopy
 RUN pip3 install grenml
+RUN pip3 install jsonparse
 RUN pip3 install openpyxl
 RUN pip3 install simplekml
 RUN pip3 install paramiko
+RUN pip3 install xmltodict
 
 # Customize bash prompt
 RUN rm /root/.bashrc
