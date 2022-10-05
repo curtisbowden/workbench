@@ -56,6 +56,7 @@ RUN pip3 install geopy
 RUN pip3 install grenml
 RUN pip3 install jsonparse
 RUN pip3 install openpyxl
+RUN pip3 install scapy
 RUN pip3 install simplekml
 RUN pip3 install paramiko
 RUN pip3 install xmltodict
