@@ -1,0 +1,6 @@
+{
+    "name": "router_robot",
+    "image": "curtisbowden/workbench",
+    "mounts": ["source=${localEnv:USERPROFILE}/.ssh/,target=/root/.ssh/,type=bind,consistency=cached",
+               "source=${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"]
+}
