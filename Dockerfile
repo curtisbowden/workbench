@@ -36,6 +36,7 @@ RUN apt-get -yqq install nmap
 RUN apt-get -yqq install mtr
 RUN apt-get -yqq install python3
 RUN apt-get -yqq install python3-pip
+RUN apt-get -yqq install python3-venv
 RUN apt-get -yqq install snmp
 RUN apt-get -yqq install snmp-mibs-downloader
 RUN apt-get -yqq install tcpdump
